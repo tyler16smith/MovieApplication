@@ -31,26 +31,33 @@ namespace MovieApplication.Controllers
             return View();
         }
 
+        // add a movie (get)
         [HttpGet]
         public IActionResult AddMovie()
         {
             return View();
         }
 
+        // Add a movie (post)
         [HttpPost]
         public IActionResult AddMovie(Movie movie)
         {
-            _context.Movies.Add(movie);
-            _context.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                _context.Movies.Add(movie);
+                _context.SaveChanges();
+            }
 
             return View("Confirmation");
         }
 
+        // confirmation page!
         public IActionResult Confirmation()
         {
             return View();
         }
 
+        // Show all movies
         [HttpGet]
         public IActionResult MoviesList()
         {
@@ -60,7 +67,7 @@ namespace MovieApplication.Controllers
         [HttpGet]
         public IActionResult Update(int movieid)
         {
-
+            // show only that database
             Movie movie = _context.Movies.Where(m => m.MovieId == movieid).FirstOrDefault();
             return View(movie);
         }
@@ -68,6 +75,7 @@ namespace MovieApplication.Controllers
         [HttpPost]
         public IActionResult Update(Movie movie, int movieid)
         {
+            // save filter changes to the selected record in the context DB
             _context.Movies.Where(m => m.MovieId == movieid).FirstOrDefault().Category= movie.Category;
             _context.Movies.Where(m => m.MovieId == movieid).FirstOrDefault().Title = movie.Title;
             _context.Movies.Where(m => m.MovieId == movieid).FirstOrDefault().Director = movie.Director;

@@ -8,6 +8,7 @@ namespace MovieApplication.Models
 {
     public class MoviesDbContext: DbContext
     {
+        // the "REAL" database - updates with each new entry
         public MoviesDbContext(DbContextOptions<MoviesDbContext> options) : base(options)
         { }
 

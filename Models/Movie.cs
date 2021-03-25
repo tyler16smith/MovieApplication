@@ -8,6 +8,7 @@ namespace MovieApplication.Models
 {
     public class Movie
     {
+        // all data for the DB
         [Key]
         public int MovieId { get; set; }
 

@@ -18,6 +18,7 @@
             </tr>
         </thead>
         <tbody>
+            @*iterate through each model in the context database*@
             @foreach (var movie in Model)
             {
                 <tr>
@@ -30,6 +31,7 @@
                     <td>@movie.Notes</td>
                     <td><a asp-action="Update" asp-route-movieid="@movie.MovieId"><input type="button" class="btn btn-secondary" value="Update" /></a></td>
                     <td>
+                        @*buttons for updating and deleting*@
                         <form asp-action="Delete" method="post">
                             <input type="hidden" name="movieid" value="@movie.MovieId" />
                             <button type="submit" class="btn btn-danger">Delete</button>

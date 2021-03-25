@@ -27,6 +27,7 @@ namespace MovieApplication
         {
             services.AddControllersWithViews();
 
+            // configure the connection settings
             services.AddDbContext<MoviesDbContext>(options =>
             {
                 options.UseSqlite(Configuration["ConnectionStrings:MovieConnections"]);
