@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Update Page";
+}
+
+@model Movie
+
+<h2>Update Movie</h2>
+<form asp-action="Update" method="post">
+    <div>
+        <p>
+            <input asp-for="MovieId" value="@Model.MovieId" hidden />
+        </p>
+        <p>
+            <label asp-for="Category">Category:</label>
+            <input asp-for="Category" value="@Model.Category" />
+        </p>
+        <p>
+            <label asp-for="Title">Title:</label>
+            <input asp-for="Title" value="@Model.Title" />
+        </p>
+        <p>
+            <label asp-for="Director">Director:</label>
+            <input asp-for="Director" value="@Model.Director" />
+        </p>
+        <p>
+            <label asp-for="Year">Year:</label>
+            <input asp-for="Year" value="@Model.Year" />
+        </p>
+        <p>
+            <label asp-for="Rating">Rating:</label>
+            <select asp-for="Rating" value="@Model.Rating">
+                <option value="G">G</option>
+                <option value="PG">PG</option>
+                <option value="PG-13">PG-13</option>
+                <option value="Research">R</option>
+            </select>
+        </p>
+        <p>
+            <label asp-for="Edited">Edited?</label>
+            <select asp-for="Edited" value="@Model.Edited">
+                <option>Select One</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </p>
+        <p>
+            <label asp-for="LentTo">Lent to:</label>
+            <input asp-for="LentTo" value="@Model.LentTo" />
+        </p>
+        <p>
+            <label asp-for="Notes">Notes:</label>
+            <input asp-for="Notes" value="@Model.Notes" />
+        </p><br />
+        <p><button type="submit" class="btn btn-primary">Submit</button></p><br />
+    </div>
+</form>
